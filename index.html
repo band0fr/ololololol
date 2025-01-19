@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Key Purchase</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            max-width: 400px;
+            padding: 20px;
+            background: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            margin: 10px 0;
+        }
+        button {
+            background: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .key {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #333;
+            background: #2c2c2c;
+            border-radius: 5px;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Purchase Script Key</h1>
+        <p>Buy your lifetime script key for only $5!</p>
+        <p>Payment via PayPal: <a href="https://www.paypal.me/JayJames270" target="_blank">Click Here to Pay</a></p>
+        <button onclick="generateKey()">Get Your Key</button>
+        <div class="key" id="keyContainer" style="display: none;"></div>
+    </div>
+
+    <script>
+        function generateKey() {
+            const hasPaid = confirm("Have you completed the payment via PayPal?");
+
+            if (hasPaid) {
+                // Generate a random key
+                const key = 'KEY-' + Math.random().toString(36).substr(2, 10).toUpperCase();
+
+                // Display the key
+                const keyContainer = document.getElementById('keyContainer');
+                keyContainer.style.display = 'block';
+                keyContainer.innerHTML = `<strong>Your Key:</strong> ${key}`;
+
+                alert("Thank you for your purchase! Here is your key.");
+            } else {
+                alert("Please complete the payment first.");
+            }
+        }
+    </script>
+</body>
+</html>
